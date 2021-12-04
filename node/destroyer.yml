@@ -1,0 +1,3 @@
+- name: deleting repo
+  shell: rm -rf /home/ubuntu/juice_shop
+  ignore_errors: yes

@@ -1,0 +1,12 @@
+- name: Clone a repo with separate git directory
+  ansible.builtin.git:
+    repo: https://github.com/juice-shop/juice-shop
+    dest: /home/ubuntu/juice_shop
+- name: starting docker 
+  shell: service docker start
+- name: Pull default Docker image
+  docker_image:
+    name: bkimminich/juice-shop
+    source: pull
+- name: running image
+  shell: docker run -d -p 80:3000 bkimminich/juice-shop
